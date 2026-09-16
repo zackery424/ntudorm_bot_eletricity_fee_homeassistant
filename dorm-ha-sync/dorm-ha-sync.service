@@ -1,0 +1,9 @@
+[Unit]
+Description=Sync dorm electricity usage to Home Assistant
+After=network-online.target
+
+[Service]
+Type=oneshot
+WorkingDirectory=/opt/dorm-ha-sync
+EnvironmentFile=/opt/dorm-ha-sync/.env
+ExecStart=/usr/bin/python3 /opt/dorm-ha-sync/ha_sync.py

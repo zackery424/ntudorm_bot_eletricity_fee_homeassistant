@@ -1,0 +1,15 @@
+# 範例：把這個服務跟 Home Assistant 放在同一個 docker-compose.yml 裡一起管理。
+# 用法：
+#   1. 把這段內容合併進你現有的 docker-compose.yml（或另存成自己的檔案）。
+#   2. cp .env.example .env，填好帳密跟 HA 權杖。
+#   3. docker compose up -d --build dorm-ha-sync
+
+services:
+  dorm-ha-sync:
+    build: .
+    container_name: dorm-ha-sync
+    restart: unless-stopped
+    env_file:
+      - .env
+    # 如果 Home Assistant 是用 host 網路模式，這裡通常維持預設的 bridge 網路即可，
+    # HA_URL 用 http://<HA 所在主機的區網 IP>:8123 就能連到。

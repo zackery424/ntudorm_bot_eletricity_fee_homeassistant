@@ -1,0 +1,6 @@
+requests>=2.31
+beautifulsoup4>=4.12
+pillow>=10.0
+numpy>=1.24
+scipy>=1.10
+pytesseract>=0.3.10
